@@ -18,7 +18,7 @@ class RetrieveThenReadApproach(Approach):
     """
 
     system_chat_template = (
-        "You are an intelligent assistant helping Contoso Inc employees with their healthcare plan questions and employee handbook questions. "
+        "You are an intelligent assistant helping employees with their questions on legal contracts. "
         + "Use 'you' to refer to the individual asking the questions even if they ask with 'I'. "
         + "Answer the following question using only the data provided in the sources below. "
         + "For tabular information return it as an html table. Do not return markdown format. "
@@ -28,15 +28,13 @@ class RetrieveThenReadApproach(Approach):
 
     # shots/sample conversation
     question = """
-'What is the deductible for the employee plan for a visit to Overlake in Bellevue?'
+'What is the name of the seller in the Kaman asset agreement purchase?'
 
 Sources:
-info1.txt: deductibles depend on whether you are in-network or out-of-network. In-network deductibles are $500 for employee and $1000 for family. Out-of-network deductibles are $1000 for employee and $2000 for family.
-info2.pdf: Overlake is in-network for the employee plan.
-info3.pdf: Overlake is the name of the area that includes a park and ride near Bellevue.
-info4.pdf: In-network institutions include Overlake, Swedish and others in the region
+info1.pdf:Kaman Aerospace Group -- May 21, 2022.pdf - Asset Purchase Agreement
+info1.txt:THIS ASSET PURCHASE AGREEMENT (this "Agreement"), dated as of May 21, 2022, is made and entered into by and between Parker-Hannifin Corporation, an Ohio corporation (the "Seller"), Kaman Newco, LLC, a Delaware limited liability company (the"Buyer") and, solely for purposes of Section 10.18, Kaman Aerospace Group, Inc., a Connecticut corporation (the "Guarantor").
 """
-    answer = "In-network deductibles are $500 for employee and $1000 for family [info1.txt] and Overlake is in-network for the employee plan [info2.pdf][info4.pdf]."
+    answer = "The seller in the Kaman Asset Agreement Purchase is Parker-Hannifin Corporation, an Ohio corporation [info1.txt][Kaman Aerospace Group -- May 21, 2022.pdf]."
 
     def __init__(
         self,
